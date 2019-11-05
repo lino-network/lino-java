@@ -96,12 +96,8 @@ public class Encoder {
   public static byte[] secp256k1Sign(byte[] data, SECP256K1.KeyPair kp) throws EncoderException {
     byte[] rst = null;
     try {
-      // Bytes32 bytes = Bytes32.wrap(privKey);
-      // SECP256K1.SecretKey secretKey = SECP256K1.SecretKey(bytes);
-      // SECP256K1.KeyPair keyPair = SECP256K1.KeyPair.fromSecretKey(secretKey);
       SECP256K1.Signature sig = SECP256K1.signHashed(data, kp);
       rst = sigToBytes(sig).toArray();
-      // rst = sig.bytes().toBase64String();
     } catch (Exception e) {
       throw new EncoderException(e.toString());
     }
@@ -119,14 +115,8 @@ public class Encoder {
     return Bytes.concatenate(pre, x).toArray();
   }
 
-  // public static String pubKeyFromPrivKey(byte[] privKey) throws EncoderException {
-  //   byte[] rst = null;
-  //   try {
-  //     Bytes32 bytes = Bytes32.wrap(privKey);
-
-  //   } catch (Exception e) {
-  //     throw new EncoderException(e.toString());
-  //   }
-  //   return bytesToHex(rst);
-  // }
+  public static Bech32.Bech32Data decodeAddr(String addr) throws EncoderException {
+    Bech32.Bech32Data b = Bech32.decode(addr);
+    return b;
+  }
 }
