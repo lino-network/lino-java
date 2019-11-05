@@ -8,9 +8,10 @@ public class LinoTest {
   static Lino lino = new Lino.Builder().build();
   @Test public void transfer() {
     // try {
-    //   long seq = lino.query.getSequenceNumber("ytu");
+    //   String senderAddr = "lino1sp07rm9tldys3tkpx26tjuptm7gzpess7rjf2j";
+    //   long seq = lino.query.getSequenceNumberByAddr(senderAddr);
     //   String privKey = "";
-    //   AccOrAddr s = new AccOrAddr.Builder().setAccountKey("ytu").build();
+    //   AccOrAddr s = new AccOrAddr.Builder().setAddr(senderAddr).build();
     //   AccOrAddr r = new AccOrAddr.Builder().setAddr("lino1722lj3a89nnmt8teadp98h5rkvrcsc4e2ulm9s").build();
     //   String rst = lino.broadcast.transfer(s, r, "1", "memo", privKey, seq);
     //   System.out.println(rst);

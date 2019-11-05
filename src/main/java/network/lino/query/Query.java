@@ -20,9 +20,18 @@ public class Query {
     return this.transport.query(AccountBank.class, keys, "account", "bank");
   }
 
+  public AccountBank getAccountBankByAddr(String addr) throws IOException, RpcException {
+    String[] keys = {addr};
+    return this.transport.query(AccountBank.class, keys, "account", "bankByAddress");
+  }
+
   public long getSequenceNumber(String username) throws IOException, RpcException {
     // TODO: should use unsigned long
     return Long.parseLong(this.getAccountBank(username).sequence);
+  }
+
+  public long getSequenceNumberByAddr(String addr) throws IOException, RpcException {
+    return Long.parseLong(this.getAccountBankByAddr(addr).sequence);
   }
 
   // Returns true if success, otherwise throws an RpcException

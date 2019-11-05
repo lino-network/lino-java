@@ -73,7 +73,6 @@ public class RpcClient implements RpcInterface {
       conn.setRequestProperty("Content-Type", "text/json");
       conn.setReadTimeout(TIMEOUT_MS);
       ObjectMapper mapper = new ObjectMapper();
-      // System.out.println(mapper.writeValueAsString(body));
       byte[] reqBody = mapper.writeValueAsString(body).getBytes("utf-8");
       OutputStream os = conn.getOutputStream();
       os.write(reqBody, 0, reqBody.length);
@@ -100,7 +99,6 @@ public class RpcClient implements RpcInterface {
       }
     }
 
-    // System.out.println(responseStr);
     return responseStr;
   }
 
