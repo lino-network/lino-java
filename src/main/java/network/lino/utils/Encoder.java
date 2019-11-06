@@ -108,7 +108,7 @@ public class Encoder {
     MutableBytes rst = MutableBytes.create(33);
     Bytes x = Bytes.wrap(uncompressed, 0, 32);
     Bytes y = Bytes.wrap(uncompressed, 32, 32);
-    boolean yOdd = (y.get(21) & 0x1) == 1;
+    boolean yOdd = (y.get(y.size()-1) & 0x1) == 1;
     byte prefix = (byte) (yOdd ? 3 : 2);
     byte[] prefixArray = { prefix };
     Bytes pre = Bytes.wrap(prefixArray);

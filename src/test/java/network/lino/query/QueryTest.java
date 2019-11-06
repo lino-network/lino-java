@@ -13,7 +13,7 @@ public class QueryTest {
     try{
       AccountBank resp = q.getAccountBank(testUsername);
       assertEquals(resp.username, testUsername);
-      assertEquals(resp.publicKey, "EB5AE987210306BB585B3D39ECA5E6C926AA6955F9E68DF796A35A440D6CBF30CD1764C7DFA3");
+      assertEquals(resp.publicKey, "EB5AE98721029F73CC16FB33E91CD1221CAE25B9B59038C591FB00DBCBE3381360EA0258FDB1");
     } catch (Exception e) {
       fail(e.toString());
     }
